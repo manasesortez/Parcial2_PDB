@@ -4,7 +4,6 @@
   pedido que se realiza de un cierto producto, llenar las
   tablas con informacion.
  */
-
 CREATE DATABASE Bodega;
 
 USE Bodega;
@@ -26,12 +25,12 @@ CREATE TABLE pedido(
   PRIMARY KEY (idpedido),
   CONSTRAINT FK_ID_PED FOREIGN KEY (idprod) REFERENCES producto(idprod) ON UPDATE CASCADE ON DELETE CASCADE
 );
-SELECT * FROM pedido;
 
+SELECT * FROM pedido;
 SELECT * FROM producto;
 
 INSERT INTO producto VALUES ('0123-9', 'Coca-Cola 3L', 100, 2.80, 3);
-INSERT INTO producto VALUES ('0123-8', 'Coca-Cola Vidrio', 200, 1.20, 1.60);
+INSERT INTO producto VALUES ('0123-1', 'Coca-Cola Vidrio 1.25L', 200, 1.20, 1.60);
 
 INSERT INTO pedido VALUES('0233-9', '0123-9', 50);
 
@@ -62,5 +61,4 @@ PRODUCTO YA HA SIDO INGRESADO”.
          END;
 
 
-
-
+EXEC addNewProduct '0121-3', 'Jabon Bex ', 50, 3, 3.25
