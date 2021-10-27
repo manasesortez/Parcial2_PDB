@@ -9,8 +9,8 @@ CREATE DATABASE Bodega;
 USE Bodega;
 
 CREATE TABLE producto(
-    idprod char(7) PRIMARY KEY,
-    descripcion VARCHAR(25),
+    idprod char(7) UNIQUE PRIMARY KEY,
+    descripcion  VARCHAR(25) UNIQUE NOT NULL,
     existencias INT,
     precio_costo DECIMAL(10,2) NOT NULL,
     precio_venta DECIMAL(10,2) NOT NULL,
@@ -51,7 +51,7 @@ PRODUCTO YA HA SIDO INGRESADO”.
          FROM producto
          WHERE idprod = @idprod AND descripcion = @descripcion)
      BEGIN
-         PRINT('EL PRODUCTO ' + @descripcion + ' YA HA SIDO INGRESADO')
+         PRINT('EL PRODUCTO YA HA SIDO INGRESADO')
      END;
      ELSE
          BEGIN
@@ -60,5 +60,4 @@ PRODUCTO YA HA SIDO INGRESADO”.
              (@idprod, @descripcion, @existencias, @precio_costo, @precio_venta)
          END;
 
-
-EXEC addNewProduct '0121-3', 'Jabon Bex ', 50, 3, 3.25
+EXEC addNewProduct '0123-5', 'Magia Blanca Lejia', 50, 3, 3.25;
